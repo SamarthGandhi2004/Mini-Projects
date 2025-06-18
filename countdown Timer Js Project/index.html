@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="main">
+        <div class="overlay">
+            <h2 class="heading">Countdown Timer To</h2>
+
+            <h1 id="setDate"></h1>
+            <div class="countdown">
+                <div class="countItems">
+                    <input type="text" id="daysNum" value="00" readonly />
+                    <span class="countText">Days</span>
+                </div>
+                <div class="countItems">
+                    <input type="text" id="hoursNum" value="00" readonly />
+                    <span class="countText">Hours</span>
+                </div>
+                <div class="countItems">
+                    <input type="text" id="minutesNum" value="00" readonly />
+                    <span class="countText">Minutes</span>
+                </div>
+                <div class="countItems">
+                    <input type="text" id="secondsNum" value="00" readonly />
+                    <span class="countText">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
+
 </html>
