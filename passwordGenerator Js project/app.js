@@ -5,8 +5,11 @@ const SymbolSet = '!@#$%^&*()_+-=[]{}|;:,.<>?';
 
 
 
+function getRandomData(dataSet){
+   return dataSet[Math.floor(Math.random()*dataSet.length)];
+}
 
-function generatePassword() {
+function generatePassword(password="") {
     const length = parseInt(document.getElementById('length').value);
     console.log(length);
 
@@ -15,29 +18,60 @@ function generatePassword() {
     const numbers=document.getElementById('numbers').checked;
     const symbolChars=document.getElementById('symbols').checked;
     console.log(upperCase, lowerCase, numbers, symbolChars);
-
+      
     if(!upperCase && !lowerCase && !numbers && !symbolChars){
         alert ('please select atleast one Character type');
         return;
     }
     if(upperCase || lowerCase || numbers|| symbolChars){
-        let passwordSet="";
+      
         if(upperCase){
-            passwordSet=passwordSet + UppercaseSet;
+           password += getRandomData(UppercaseSet);
         }
         if(lowerCase){
-            passwordSet=passwordSet + LowercaseSet;
+            password += getRandomData(LowercaseSet);
         }
         if(numbers){
-            passwordSet=passwordSet + NumberSet;
+            password += getRandomData(NumberSet);
         }
         if(symbolChars){
-            passwordSet=passwordSet + SymbolSet;
+           password += getRandomData(SymbolSet);
         }
-        let password="";
+        if(password.length<length){
+            return generatePassword(password);
+        }
 
-        console.log(passwordSet);
 
+        // if(password.length>length){
+        //     password= password.slice(0,length);
+        // }
+
+        // if(password.length>length){
+        //     let subStr=password.substring(0,length);
+        //     password = subStr;
+        // }
+
+        if(password.length>length){
+            let finalPass="";
+            let difference = password.length - length;
+            let loop=password.length -difference;
+            console.log(difference, loop);
+            for(let i=0; i<loop;i++){
+                   finalPass=finalPass+ password[i];
+            }
+            password = finalPass;
+        }
+        document.getElementById('password').value = password;
 
     }
+
+
+ 
+ console.log(password);
+}
+
+
+function copyPassword(){
+    navigator.clipboard.writeText(document.getElementById('password').value);
+    alert("Password copied to clipboard");
 }
