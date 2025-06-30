@@ -1,0 +1,124 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main Container */
+.main {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header */
+.main h1 {
+    font-size: 24px;
+    color: #4a4a8f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Input Section */
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input input {
+    width: 70%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.input input:focus {
+    border-color: #4a4a8f;
+    box-shadow: 0 0 5px rgba(74, 74, 143, 0.5);
+}
+
+.input button {
+    padding: 10px 20px;
+    background-color: #4a4a8f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.input button:hover {
+    background-color: #38386a;
+}
+
+/* Todos Section */
+.todos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #eaeaff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.todo-item h1 {
+    font-size: 16px;
+    color: #4a4a8f;
+    word-break: break-word;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.todo-item .delete {
+    padding: 5px 10px;
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.todo-item .delete:hover {
+    background-color: #cc5757;
+}
+
+.todo-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #000000;
+}
