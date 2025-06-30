@@ -52,11 +52,36 @@ const getUser = async (user) => {
 
 }
 
+
+const getRepos=async (user)=>{
+    try {
+        if (user === "") {
+            return;
+        }
+        else {
+            const response= await fetch('https://api.github.com/users/' + user + '/repos');
+            const data=await response.json();
+            console.log("repos",data);
+            if(data.message ==="Not Found"){
+                return;
+            }
+            else{
+                //to be done
+            }
+
+        }
+    } catch (error) {
+        console.error("Error fetching user repositories:", error);
+        return;
+    }
+}
+
 const formSubmit = (event) => {
     event.preventDefault();
     console.log(input.value);
     if (input.value != "") {
         getUser(input.value);
+        getRepos(input.value);
     }
     return false;
 }
