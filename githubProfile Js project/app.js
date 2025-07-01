@@ -1,4 +1,48 @@
+
+
 const input = document.querySelector('#username');
+
+const profileCard=document.querySelector('.profileCard');
+
+
+
+
+
+
+
+
+
+const getRepos = async (user) => {
+    try {
+
+        const repository = document.querySelector('.allRepos');
+        if (user === "") {
+            repository.innerHTML="user doesnt exist"
+        }
+        else {
+            const response = await fetch('https://api.github.com/users/' + user + '/repos');
+            const data = await response.json();
+            console.log("repos", data);
+            if (data.message == "Not Found") {
+                repository.innerHTML="no repos";
+            }
+            else {
+
+                const repoList = data.map(repo => `<li>${repo.name}</li>`).join("");
+
+                repository.innerHTML = `<ul>${repoList}</ul>`;
+                
+            }
+
+        }
+    } catch (error) {
+        console.error("Error fetching user repositories:", error);
+        return;
+    }
+}
+
+
+
 
 
 const getUser = async (user) => {
@@ -7,11 +51,12 @@ const getUser = async (user) => {
         const data = await response.json();
         console.log(data);
         if (data.message === "Not Found") {
-            //to be done    
+            profileCard.innerHTML='<p>User not found</p>'  
         }
         else {
-
+profileCard.innerHTML='';
             const card = `
+
             <div class="profileContainer">
                 <div class="avatar">
                     <img id="avatar" src=${data.avatar_url} alt="User Avatar">
@@ -28,19 +73,18 @@ const getUser = async (user) => {
                         <li class="gists">Gists: ${data.public_gists}</li>
                     </ul>
 
-                <div class="repos">
-                   //to be done
+                <div class="allRepos">
+                  
                     
                 </div>
 
                 </div>
             </div>
 
-        thth
         `;
 
-
-
+profileCard.innerHTML=card;
+getRepos(user);
         }
 
     } catch (error) {
@@ -53,35 +97,13 @@ const getUser = async (user) => {
 }
 
 
-const getRepos=async (user)=>{
-    try {
-        if (user === "") {
-            return;
-        }
-        else {
-            const response= await fetch('https://api.github.com/users/' + user + '/repos');
-            const data=await response.json();
-            console.log("repos",data);
-            if(data.message =="Not Found"){
-                return;
-            }
-            else{
-                //to be done
-            }
-
-        }
-    } catch (error) {
-        console.error("Error fetching user repositories:", error);
-        return;
-    }
-}
-
 const formSubmit = (event) => {
     event.preventDefault();
     console.log(input.value);
-    if (input.value != "") {
-        getUser(input.value);
-        getRepos(input.value);
+    const userName=input.value.trim();
+    if (userName != "") {
+        getUser(userName);
+        
     }
     return false;
 }

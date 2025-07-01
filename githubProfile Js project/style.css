@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
+
+/* Main Container */
+.main {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 20px;
+}
+
+#username {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Profile Card */
+.profileCard {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.profileInfo {
+    text-align: left;
+    width: 100%;
+}
+
+.profileInfo h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.profileInfo p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.info {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.info li {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Repositories */
+.allRepos {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.allRepos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.allRepos li {
+    padding: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.allRepos li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
