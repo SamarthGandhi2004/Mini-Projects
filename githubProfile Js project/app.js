@@ -62,7 +62,7 @@ const getRepos=async (user)=>{
             const response= await fetch('https://api.github.com/users/' + user + '/repos');
             const data=await response.json();
             console.log("repos",data);
-            if(data.message ==="Not Found"){
+            if(data.message =="Not Found"){
                 return;
             }
             else{
