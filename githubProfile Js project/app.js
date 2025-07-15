@@ -1,16 +1,6 @@
-
-
 const input = document.querySelector('#username');
 
 const profileCard=document.querySelector('.profileCard');
-
-
-
-
-
-
-
-
 
 const getRepos = async (user) => {
     try {
